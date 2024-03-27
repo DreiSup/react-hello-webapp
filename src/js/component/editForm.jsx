@@ -1,20 +1,31 @@
 import React, { useState, useEffect, useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
+
 import { Context } from "../store/appContext";
 
 import "../../styles/demo.css";
 
-export const Demo = () => {
+export const EditForm = () => {
 	const { store, actions } = useContext(Context);
-	const [ fullName, setFullName ] = useState("");
-	const [ emailAdress, setEmailAdress ] = useState("");
-	const [ phoneNumber, setPhoneNumber ] = useState("");
-	const [ homeAdress, setHomeAdress ] = useState("");
+	const [ fullName, setFullName ] = useState("Nombre");
+	const [ emailAdress, setEmailAdress ] = useState("Correo");
+	const [ phoneNumber, setPhoneNumber ] = useState("Numero");
+	const [ homeAdress, setHomeAdress ] = useState("Direccion");
+    const {id} = useParams ();
+    console.log(id);
+
+    useEffect(() => {
+            actions.getSingleContact(id);
+            setFullName(store.contact.full_name);
+            setEmailAdress(store.contact.email);
+            setPhoneNumber(store.contact.phone);
+            setHomeAdress(store.contact.address);
+      }, []);
 
 	const handleSubmit = e => {
 		e.preventDefault();
 		console.log(fullName)
-		actions.createContact(fullName, emailAdress, phoneNumber, homeAdress);
+		actions.editContact(fullName, emailAdress, phoneNumber, homeAdress, id);
 		setFullName("");
 		setEmailAdress("");
 		setPhoneNumber("");
@@ -84,12 +95,12 @@ export const Demo = () => {
 			</form>
 
 			{/* <button onClick={() => console.log(fullName)}>Mostrar datos</button> */}
+
 			<div className="linkToHome">
 				<Link to="/">
 					<button className="btn btn-outline-dark" id="backHome">Back home</button>
 				</Link>
 			</div>
-			
 		</div>
 	);
 };

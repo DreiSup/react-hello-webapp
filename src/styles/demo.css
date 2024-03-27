@@ -1,0 +1,16 @@
+.body{
+    font-family:Helvetica ;
+    font-style: italic;
+    font-weight: bold;
+}
+
+label{
+    font-weight: 500;
+}
+
+.linkToHome{
+    display:flex;
+    justify-content: center;
+    margin-top: 2rem;
+}
+

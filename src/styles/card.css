@@ -1,0 +1,39 @@
+/* .card-body {
+    text-align: center;
+  } */
+
+.profilePicture{
+    height: max-content;
+    width: 25%;
+}
+#pfp{
+   /*  margin-left: 2rem; */
+   position: absolute; /* Establece la posición absoluta para desplazar la imagen */
+    top: 50%; /* Desplaza la imagen hacia abajo un 50% desde la parte superior del contenedor */
+    left: 10%; /* Desplaza la imagen hacia la derecha un 50% desde el borde izquierdo del contenedor */
+    transform: translate(-50%, -50%);
+    overflow: hidden; 
+    border-radius: 50%;
+}
+
+.inputs{
+    margin-top: .75rem;
+}
+
+.buttons{
+    margin-left: auto;
+}
+
+#botonDelete{
+    margin-left: .5rem;
+}
+
+p{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+.nameP{
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+}
