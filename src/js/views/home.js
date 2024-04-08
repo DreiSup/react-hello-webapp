@@ -9,6 +9,7 @@ export const Home = () => {
 	const { store, actions } = useContext(Context);
 
 	useEffect(() => {
+		actions.createAgenda();
 		actions.getContact();
 		console.log(store.contacts);
 	  }, []);
@@ -17,7 +18,7 @@ export const Home = () => {
 
 	return (
 	<div className="home">
-		{store.contacts.map((item, index)=> {
+		{store.contacts?.map((item, index)=> {
 			return(
 				<Card 
 					name={item.full_name}
